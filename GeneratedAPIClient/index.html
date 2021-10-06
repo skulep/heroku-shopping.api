@@ -1,0 +1,582 @@
+<!doctype html>
+<html>
+  <head>
+    <title>main shopping</title>
+    <style type="text/css">
+      body {
+      	font-family: Trebuchet MS, sans-serif;
+      	font-size: 15px;
+      	color: #444;
+      	margin-right: 24px;
+      }
+      
+      h1	{
+      	font-size: 25px;
+      }
+      h2	{
+      	font-size: 20px;
+      }
+      h3	{
+      	font-size: 16px;
+      	font-weight: bold;
+      }
+      hr	{
+      	height: 1px;
+      	border: 0;
+      	color: #ddd;
+      	background-color: #ddd;
+      }
+      
+      .app-desc {
+        clear: both;
+        margin-left: 20px;
+      }
+      .param-name {
+        width: 100%;
+      }
+      .license-info {
+        margin-left: 20px;
+      }
+      
+      .license-url {
+        margin-left: 20px;
+      }
+      
+      .model {
+        margin: 0 0 0px 20px;
+      }
+      
+      .method {
+        margin-left: 20px;
+      }
+      
+      .method-notes	{
+      	margin: 10px 0 20px 0;
+      	font-size: 90%;
+      	color: #555;
+      }
+      
+      pre {
+        padding: 10px;
+        margin-bottom: 2px;
+      }
+      
+      .http-method {
+       text-transform: uppercase;
+      }
+      
+      pre.get {
+        background-color: #0f6ab4;
+      }
+      
+      pre.post {
+        background-color: #10a54a;
+      }
+      
+      pre.put {
+        background-color: #c5862b;
+      }
+      
+      pre.delete {
+        background-color: #a41e22;
+      }
+      
+      .huge	{
+      	color: #fff;
+      }
+      
+      pre.example {
+        background-color: #f3f3f3;
+        padding: 10px;
+        border: 1px solid #ddd;
+      }
+      
+      code {
+        white-space: pre;
+      }
+      
+      .nickname {
+        font-weight: bold;
+      }
+      
+      .method-path {
+        font-size: 1.5em;
+        background-color: #0f6ab4;
+      }
+      
+      .up {
+        float:right;
+      }
+      
+      .parameter {
+        width: 500px;
+      }
+      
+      .param {
+        width: 500px;
+        padding: 10px 0 0 20px;
+        font-weight: bold;
+      }
+      
+      .param-desc {
+        width: 700px;
+        padding: 0 0 0 20px;
+        color: #777;
+      }
+      
+      .param-type {
+        font-style: italic;
+      }
+      
+      .param-enum-header {
+      width: 700px;
+      padding: 0 0 0 60px;
+      color: #777;
+      font-weight: bold;
+      }
+      
+      .param-enum {
+      width: 700px;
+      padding: 0 0 0 80px;
+      color: #777;
+      font-style: italic;
+      }
+      
+      .field-label {
+        padding: 0;
+        margin: 0;
+        clear: both;
+      }
+      
+      .field-items	{
+      	padding: 0 0 15px 0;
+      	margin-bottom: 15px;
+      }
+      
+      .return-type {
+        clear: both;
+        padding-bottom: 10px;
+      }
+      
+      .param-header {
+        font-weight: bold;
+      }
+      
+      .method-tags {
+        text-align: right;
+      }
+      
+      .method-tag {
+        background: none repeat scroll 0% 0% #24A600;
+        border-radius: 3px;
+        padding: 2px 10px;
+        margin: 2px;
+        color: #FFF;
+        display: inline-block;
+        text-decoration: none;
+      }
+    </style>
+  </head>
+  <body>
+  <h1>main shopping</h1>
+    <div class="app-desc">Shopping site API. Allows users to browse entries. Registered users can post items for sale and edit/remove their items.</div>
+    <div class="app-desc">More information: <a href="https://helloreverb.com">https://helloreverb.com</a></div>
+    <div class="app-desc">Contact Info: <a href="t8leos00@students.oamk.fi">t8leos00@students.oamk.fi</a></div>
+    <div class="app-desc">Version: 1.0</div>
+    
+    <div class="license-info">All rights reserved</div>
+    <div class="license-url">http://apache.org/licenses/LICENSE-2.0.html</div>
+  <h2>Access</h2>
+
+  <h2><a name="__Methods">Methods</a></h2>
+  [ Jump to <a href="#__Models">Models</a> ]
+
+  <h3>Table of Contents </h3>
+  <div class="method-summary"></div>
+  <h4><a href="#Default">Default</a></h4>
+  <ul>
+  <li><a href="#getAll"><code><span class="http-method">get</span> /all</code></a></li>
+  <li><a href="#getSeachCategory(category)"><code><span class="http-method">get</span> /search/category/{category}</code></a></li>
+  <li><a href="#getSearchId(itemId)"><code><span class="http-method">get</span> /search/id/{itemId}</code></a></li>
+  <li><a href="#getSearchLocation(location)"><code><span class="http-method">get</span> /search/location/{location}</code></a></li>
+  <li><a href="#itemDeleteItemId"><code><span class="http-method">delete</span> /item/delete/{itemID}</code></a></li>
+  <li><a href="#postItemAdd"><code><span class="http-method">post</span> /item/add</code></a></li>
+  <li><a href="#postRegister"><code><span class="http-method">post</span> /register</code></a></li>
+  <li><a href="#putItemModify"><code><span class="http-method">put</span> /item/modify/{itemID}</code></a></li>
+  </ul>
+
+  <h1><a name="Default">Default</a></h1>
+  <div class="method"><a name="getAll"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /all</code></pre></div>
+    <div class="method-summary">Your GET endpoint (<span class="nickname">getAll</span>)</div>
+    <div class="method-notes">Lists ALL items by date, with the oldest entry being first.</div>
+
+
+
+
+
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="getSeachCategory(category)"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /search/category/{category}</code></pre></div>
+    <div class="method-summary">Your GET endpoint (<span class="nickname">getSeachCategory(category)</span>)</div>
+    <div class="method-notes">GET all items matching the entered category. If category is not found, send status 404.</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">category (required)</div>
+      
+            <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash;  </div>    </div>  <!-- field-items -->
+
+
+
+
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#"></a>
+    <h4 class="field-label">404</h4>
+    Not Found
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="getSearchId(itemId)"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /search/id/{itemId}</code></pre></div>
+    <div class="method-summary">Your GET endpoint (<span class="nickname">getSearchId(itemId)</span>)</div>
+    <div class="method-notes">Find item by itemID. Lists that item.</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">itemId (required)</div>
+      
+            <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash;  </div>    </div>  <!-- field-items -->
+
+
+
+
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#"></a>
+    <h4 class="field-label">404</h4>
+    Not Found
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="getSearchLocation(location)"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /search/location/{location}</code></pre></div>
+    <div class="method-summary">Your GET endpoint (<span class="nickname">getSearchLocation(location)</span>)</div>
+    <div class="method-notes">GET all items matching the entered location. If location is not found, send status 404.</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">location (required)</div>
+      
+            <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash;  </div>    </div>  <!-- field-items -->
+
+
+
+
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#"></a>
+    <h4 class="field-label">404</h4>
+    Not Found
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="itemDeleteItemId"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="delete"><code class="huge"><span class="http-method">delete</span> /item/delete/{itemID}</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">itemDeleteItemId</span>)</div>
+    <div class="method-notes">Delete an entry. Can only be performed by user, like put-item-modify.</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">itemID (required)</div>
+      
+            <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash;  </div>    </div>  <!-- field-items -->
+
+
+
+
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#"></a>
+    <h4 class="field-label">400</h4>
+    Bad Request
+        <a href="#"></a>
+    <h4 class="field-label">401</h4>
+    Unauthorized
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="postItemAdd"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /item/add</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">postItemAdd</span>)</div>
+    <div class="method-notes">POST a new item. Requires user login. Also requires fields name, description, price, location, delivery and category. Supports images, but those are not required. Successfully created entry is added to the item database/array.</div>
+
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">body <a href="#Item">Item</a> (optional)</div>
+      
+            <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+            <div class="param-desc"><span class="param-type">example: <code>{
+  &quot;value&quot; : {
+    &quot;itemID&quot; : &quot;f1f85a48-b9b1-447d-a06c-c1acf57ed3a8&quot;,
+    &quot;name&quot; : &quot;string&quot;,
+    &quot;description&quot; : &quot;string&quot;,
+    &quot;price&quot; : &quot;string&quot;,
+    &quot;location&quot; : &quot;string&quot;,
+    &quot;category&quot; : &quot;string&quot;,
+    &quot;image&quot; : [ null ],
+    &quot;deliveryMethod&quot; : &quot;string&quot;,
+    &quot;datetime&quot; : &quot;2019-08-24T14:15:22Z&quot;,
+    &quot;ownerID&quot; : &quot;string&quot;,
+    &quot;ownerName&quot; : &quot;string&quot;,
+    &quot;ownerMobileNumber&quot; : 1000000,
+    &quot;ownerEmail&quot; : &quot;user@example.com&quot;
+  }
+}</code></span></div>    </div>  <!-- field-items -->
+
+
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">201</h4>
+    Created
+        <a href="#"></a>
+    <h4 class="field-label">401</h4>
+    Unauthorized
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="postRegister"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /register</code></pre></div>
+    <div class="method-summary">Create New User (<span class="nickname">postRegister</span>)</div>
+    <div class="method-notes">Register a new user. Password will be encrypted via bcrypt.</div>
+
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">body <a href="#User">User</a> (optional)</div>
+      
+            <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+                </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#User">User</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "lName" : "Smith",
+  "password" : "example",
+  "fName" : "Alice",
+  "mobileNumber" : 112355346,
+  "userID" : "12h844u3f20",
+  "createdOn" : "1. October 2021  15:32",
+  "email" : "",
+  "username" : "alice213"
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    User Created
+        <a href="#User">User</a>
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: New User Bob Fellow</div>
+    <pre class="example"><code>{&quot;userID&quot;:&quot;12h844u3f20&quot;,&quot;fName&quot;:&quot;Alice&quot;,&quot;lName&quot;:&quot;Smith&quot;,&quot;email&quot;:&quot;alice.smith@mail.d&quot;,&quot;mobileNumber&quot;:199730584,&quot;username&quot;:&quot;alice1&quot;,&quot;password&quot;:&quot;example&quot;,&quot;createdOn&quot;:&quot;1. October 2020 15:30:21&quot;}</code></pre>
+    <h4 class="field-label">400</h4>
+    Missing Required Information
+        <a href="#"></a>
+    <h4 class="field-label">409</h4>
+    Email Already Taken
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="putItemModify"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="put"><code class="huge"><span class="http-method">put</span> /item/modify/{itemID}</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">putItemModify</span>)</div>
+    <div class="method-notes">Update item information. Only item owner can perform this, so requires login. Requires the same fields to be filled as post-item-add</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">itemID (required)</div>
+      
+            <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash;  </div>    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">body <a href="#Item">Item</a> (optional)</div>
+      
+            <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+                </div>  <!-- field-items -->
+
+
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#"></a>
+    <h4 class="field-label">400</h4>
+    Bad Request
+        <a href="#"></a>
+    <h4 class="field-label">401</h4>
+    Unauthorized
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+
+  <h2><a name="__Models">Models</a></h2>
+  [ Jump to <a href="#__Methods">Methods</a> ]
+
+  <h3>Table of Contents</h3>
+  <ol>
+    <li><a href="#Item"><code>Item</code> - Item</a></li>
+    <li><a href="#User"><code>User</code> - User</a></li>
+  </ol>
+
+  <div class="model">
+    <h3><a name="Item"><code>Item</code> - Item</a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Stores data for items. Some data is grabbed from User.</div>
+    <div class="field-items">
+      <div class="param">itemID (optional)</div><div class="param-desc"><span class="param-type"><a href="#UUID">UUID</a></span> Unique item ID, generated randomly format: uuid</div>
+<div class="param">name </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Item name </div>
+<div class="param">description </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Item description </div>
+<div class="param">price </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Price the seller has set for this product </div>
+<div class="param">location </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Location of item; ex. New York or Helsinki, Finland </div>
+<div class="param">category </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Item category. Examples: clothing, vehicle </div>
+<div class="param">image </div><div class="param-desc"><span class="param-type"><a href="#object">array[Object]</a></span> Item images </div>
+<div class="param">deliveryMethod </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Accepted delivery methods, ex. shipping or pickup </div>
+<div class="param">datetime (optional)</div><div class="param-desc"><span class="param-type"><a href="#DateTime">Date</a></span> Date and time the item was created on. format: date-time</div>
+<div class="param">ownerID (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Unique ownerID, grabbed when creating listing. </div>
+<div class="param">ownerName (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Item owner name (first + last), set automatically when creating listing (while logged in.) </div>
+<div class="param">ownerMobileNumber (optional)</div><div class="param-desc"><span class="param-type"><a href="#BigDecimal">BigDecimal</a></span> Item owner mobile number, set automatically when creating listing (while logged in.) </div>
+<div class="param">ownerEmail (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Item owner email, set automatically when creating listing (while logged in.) format: email</div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="User"><code>User</code> - User</a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Stores all data for user(s).</div>
+    <div class="field-items">
+      <div class="param">userID (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Unique identifier for the given user. format: string</div>
+          <div class="param-desc"><span class="param-type">example: 12h844u3f20</span></div>
+<div class="param">fName </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> First name of user </div>
+          <div class="param-desc"><span class="param-type">example: Alice</span></div>
+<div class="param">lName </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Last name of user </div>
+          <div class="param-desc"><span class="param-type">example: Smith</span></div>
+<div class="param">email </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> User email format: email</div>
+<div class="param">mobileNumber </div><div class="param-desc"><span class="param-type"><a href="#BigDecimal">BigDecimal</a></span> User&#x27;s mobile/phone number </div>
+          <div class="param-desc"><span class="param-type">example: 112355346</span></div>
+<div class="param">username </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Account username, used with password to log in. </div>
+          <div class="param-desc"><span class="param-type">example: alice213</span></div>
+<div class="param">password </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> User password, encrypted when added to the database/array format: password</div>
+          <div class="param-desc"><span class="param-type">example: example</span></div>
+<div class="param">createdOn (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The date that the user was created. format: string</div>
+          <div class="param-desc"><span class="param-type">example: 1. October 2021  15:32</span></div>
+    </div>  <!-- field-items -->
+  </div>
+  </body>
+</html>
