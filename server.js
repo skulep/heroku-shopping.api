@@ -245,6 +245,7 @@ app.put('/item/modify/:id',
         }
     }
 })
+//Remove this comment to use locally on port localhost:2000
 /*
 app.listen(port, () => {
     console.log(`Example app listening at http://localhost:${port}`)
