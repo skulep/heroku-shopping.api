@@ -8,10 +8,12 @@ const passport = require('passport')
 const bcrypt = require('bcryptjs')
 const Ajv = require("ajv")
 const ajv = new Ajv()
+const cloudinary = require('cloudinary')
+const cloudinaryStorage = require('multer-storage-cloudinary')
 const BasicStrategy = require('passport-http').BasicStrategy;   //basic password authentication
 const upload = multer({ dest: './upload/' })
 const app = express()
-const port = 2000
+//const port = 2000  //Uncomment for local server
 
 app.use(bodyParser.json())
 //'use strict';
@@ -21,6 +23,18 @@ const validateItem = ajv.compile(itemInfoSchema)
 
 const userInfoSchema = require('./schemas/userInfo.schema.json')
 const validateUser = ajv.compile(userInfoSchema)
+
+//Image storage
+var storage = cloudinaryStorage({
+  cloudinary: cloudinary,
+  folder: 'images',
+  allowedFormats: ['jpg', 'png'],
+});
+
+var parser = multer({ storage: storage });
+
+//Heroku port
+app.set('port', (process.env.PORT || 80));
 
 //Array of users, need to register
 const users = [
@@ -245,12 +259,16 @@ app.put('/item/modify/:id',
         }
     }
 })
-/*
+//Note-- both app.listens need to be commented/removed for the mocha tests. Otherwise it will give a good amount of errors 
+/* //Uncomment if you want to use local server
 app.listen(port, () => {
     console.log(`Example app listening at http://localhost:${port}`)
 })
-
 */
+app.listen(app.get('port'), function() {
+    console.log('Node app is running on port', app.get('port'));
+});
+
 let serverInstance = null;
 module.exports = {
     start: function() {
