@@ -38,16 +38,12 @@ app.set('port', (process.env.PORT || 80));
 
 //Array of users, need to register
 const users = [
-    {
         //register to add users
-    }
 ];
 
 //array of items
 const item = [
-    { 
         //register, then use /item/add
-    }
 ]
  //Current date and time  // USES moment.js, requires 'npm i moment'
 function DateTimeNow() {
