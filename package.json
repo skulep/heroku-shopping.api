@@ -19,7 +19,10 @@
     "body-parser": "^1.19.0",
     "bcryptjs": "^2.4.3",
     "passport-http": "^0.3.0",
-    "ajv": "^8.6.3"
+    "ajv": "^8.6.3",
+    "chai": "^4.3.4",
+    "chai-http": "^4.3.0",
+    "chai-json-schema-ajv": "^5.2.4"
   },
   "engines": {
     "node": "12.x"
