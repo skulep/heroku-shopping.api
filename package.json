@@ -1,28 +1,18 @@
 {
-  "name": "api-shopping-test",
+  "name": "heroku-api-test",
   "version": "1.0.0",
-  "description": "Marketplace style API",
+  "description": "",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
   "dependencies": {
     "cloudinary": "^1.4.3",
     "express": "^4.14.0",
     "multer": "^1.2.0",
-    "multer-storage-cloudinary": "^1.2.1",
-    "moment": "^2.29.1",
-    "passport": "^0.5.0",
-    "uuid": "^8.3.2",
-    "body-parser": "^1.19.0",
-    "bcryptjs": "^2.4.3",
-    "passport-http": "^0.3.0",
-    "ajv": "^8.6.3",
-    "chai": "^4.3.4",
-    "chai-http": "^4.3.0",
-    "chai-json-schema-ajv": "^5.2.4"
+    "multer-storage-cloudinary": "^1.2.1"
   },
   "engines": {
     "node": "12.x"
