@@ -36,4 +36,7 @@ Branch 'localserver' should make doing these tests easier.
 Stoplight site (should be public):
 https://t8leos.stoplight.io/studio/shopping
 
+Heroku site:
+https://heroku-shopping-app.herokuapp.com/
+
 Swagger generated client API can be found in GeneratedAPIClient folder.
