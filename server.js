@@ -268,7 +268,8 @@ app.listen(port, () => {
 app.listen(app.get('port'), function() {
     console.log('Node app is running on port', app.get('port'));
 });
-
+//For mocha testing, however using the 'local' build is better for these
+/*
 let serverInstance = null;
 module.exports = {
     start: function() {
@@ -280,3 +281,4 @@ module.exports = {
         serverInstance.close();
     }
 }
+*/
